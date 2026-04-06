@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 39 100% 98%;
+  --foreground: 224 41% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 224 41% 11%;
+  --muted: 36 60% 94%;
+  --muted-foreground: 220 9% 40%;
+  --primary: 23 95% 58%;
+  --primary-foreground: 0 0% 100%;
+  --accent: 174 82% 34%;
+  --accent-foreground: 0 0% 100%;
+  --border: 30 23% 86%;
+  --ring: 23 95% 58%;
+  --danger: 0 84% 60%;
+  --danger-foreground: 0 0% 100%;
+}
+
+* {
+  @apply border-border;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  background-image:
+    radial-gradient(circle at 12% -20%, rgba(251, 146, 60, 0.22), transparent 34%),
+    radial-gradient(circle at 84% -10%, rgba(20, 184, 166, 0.16), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(249, 115, 22, 0.08), transparent 40%);
+  margin: 0;
+}
+
+::selection {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-primary/40;
+}
+
+.cms-richtext:empty:before {
+  content: attr(data-placeholder);
+  color: hsl(var(--muted-foreground));
+}
+
+.cms-richtext p {
+  margin: 0 0 0.75rem;
+}
+
+.cms-richtext ul,
+.cms-richtext ol {
+  margin: 0.25rem 0 0.75rem 1.25rem;
+}
